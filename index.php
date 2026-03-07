@@ -13,10 +13,10 @@
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="/PWA - TCC/view/sobre.php">Nossa Equipe</a></li>
+            <li><a href="./view/sobre.php">Nossa Equipe</a></li>
         </ul>
     </nav>
-    <a href="/PWA - TCC/view/login.php" class="btn-login">Login / Cadastro</a>
+    <a href="./view/login.php" class="btn-login">Login / Cadastro</a>
 </header>
 
 <section class="hero-fridge">
@@ -28,7 +28,7 @@
         </p>
 
         <div class="hero-buttons">
-            <a href="view/sobre.php" class="btn-primary">Conheça a Equipe</a>
+            <a href="TCC/view/sobre.php" class="btn-primary">Conheça a Equipe</a>
         </div>
     </div>
 </section>

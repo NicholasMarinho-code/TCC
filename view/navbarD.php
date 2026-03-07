@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-md">
-        <a class="navbar-brand" href="#">USUÁRIOS</a>
+        <a class="navbar-brand" href="#">DISPOSITIVOS</a>
     </div>
 </nav>

@@ -47,7 +47,7 @@ if (btnLogin) {
         signInWithEmailAndPassword(auth, email, senha)
             .then((userCredential) => {
                 alert("Logado com sucesso!");
-                location.href = "../view/Usuarios.php";
+                location.href = "../view/menu.php";
             })
             .catch((error) => {
                 alert("Erro ao logar: " + error.message);
