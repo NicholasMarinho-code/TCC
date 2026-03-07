@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once "../config.php";
 
@@ -20,7 +20,7 @@ if (isset($_POST["create_usuario"])) {
 
     mysqli_query($conexao, $sql);
 
-    if(mysqli_affected_rows($conexao) > 0) {
+    if (mysqli_affected_rows($conexao) > 0) {
         $_SESSION["mensagem"] = "Usuário criado com sucesso";
         header('location: Usuarios.php');
         exit;
@@ -70,18 +70,18 @@ if (isset($_POST["update_usuario"])) {
 }
 
 if (isset($_POST['delete_usuario'])) {
-    $usuario_id = mysqli_real_escape_string( $conexao, $_POST['delete_usuario']);
-    
+    $usuario_id = mysqli_real_escape_string($conexao, $_POST['delete_usuario']);
+
     $sql = "DELETE FROM Usuario WHERE id = '$usuario_id' ";
 
-    mysqli_query( $conexao, $sql);
+    mysqli_query($conexao, $sql);
 
-    if (mysqli_affected_rows($conexao)  > 0) {  
-     $_SESSION["mensagem"] = "Usuario deletado com sucesso";
-     header("location: Usuarios.php");
+    if (mysqli_affected_rows($conexao) > 0) {
+        $_SESSION["mensagem"] = "Usuario deletado com sucesso";
+        header("location: Usuarios.php");
     } else {
         $_SESSION["mensagem"] = "Usuario não foi deletado";
-     header("location: Usuarios.php");
+        header("location: Usuarios.php");
     }
 }
 

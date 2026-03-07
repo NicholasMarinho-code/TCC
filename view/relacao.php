@@ -36,6 +36,7 @@ require_once("../config.php");
             ?>
         </tbody>
     </table>
+     <a href="menu.php"><button type="button" class="btn btn-danger">Voltar</button></a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
