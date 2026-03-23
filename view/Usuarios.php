@@ -68,6 +68,7 @@
           ?>
       </tbody>
             </table>
+            <a href="menu.php"><button type="button" class="btn btn-danger">Voltar</button></a>
           </div>
         </div>
       </div>
