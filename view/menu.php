@@ -23,7 +23,7 @@
                     <h3>Usuários</h3>
                     <p>Gerenciar usuários do sistema</p>
 
-                    <a href="Usuarios.php" class="btn btn-primary">
+                    <a href="Usuarios.php" class="btn btn-info">
                         Acessar
                     </a>
 
@@ -36,7 +36,7 @@
                     <h3>Dispositivos</h3>
                     <p>Gerenciar dispositivos</p>
 
-                    <a href="Dispositivos.php" class="btn btn-success">
+                    <a href="Dispositivos.php" class="btn btn-info">
                         Acessar
                     </a>
 
@@ -50,7 +50,7 @@
                     <h3>Vinculos</h3>
                     <p>Gerenciar vinculos</p>
 
-                    <a href="vincular.php" class="btn btn-danger">
+                    <a href="vincular.php" class="btn btn-info">
                         Acessar
                     </a>
 
@@ -63,7 +63,7 @@
                     <h3>Relação</h3>
                     <p>Gerenciar relações</p>
 
-                    <a href="relacao.php" class="btn btn-warning">
+                    <a href="relacao.php" class="btn btn-info">
                         Acessar
                     </a>
 
