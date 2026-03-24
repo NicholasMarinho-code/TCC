@@ -41,7 +41,7 @@ require_once("../config.php");
                 ?>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Vincular</button>
+        <button type="submit" name="vincular" class="btn btn-primary">Vincular</button>
         <a href="menu.php"><button type="button" class="btn btn-danger">Voltar</button></a>
     </form>
 </div>
