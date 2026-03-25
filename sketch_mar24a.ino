@@ -3,11 +3,11 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-const char* ssid = "Nicholas";
-const char* password = "4000100Nicholas";
+const char* ssid = "SSID";
+const char* password = "PASSWORD";
 
-String botToken = "8591506162:AAHbFtDk5Kh5gZtYx8w-ZJ-tFRninXfpOI8";
-String chatID = "eteczl_bot";
+String botToken = "TOKEN";
+String chatID = "ID";
 
 #define ONE_WIRE_BUS 5
 OneWire oneWire(ONE_WIRE_BUS);
