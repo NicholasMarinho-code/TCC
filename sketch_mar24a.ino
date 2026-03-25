@@ -67,3 +67,5 @@ void loop() {
     }
   }
 }
+
+//Código ESP32
