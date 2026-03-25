@@ -11,7 +11,7 @@
     <div class="container">
 
         <h2>Cadastro</h2>
-
+        <img src="../img/Logo.jpeg" alt="Logo" class="logo" width="300" height="220">
         <div class="form-group">
             <label>E-mail</label>
             <input type="email" id="emailCadastro" placeholder="Digite seu e-mail">

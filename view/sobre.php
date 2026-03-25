@@ -25,10 +25,11 @@
 </section>
 
 <div class="carousel">
-    <img src="../img/images.webp" class="active">
-    <img src="../img/SOAD.webp">
-    <img src="../img/RHCP.webp">
-    <img src="../img/Nir.webp">
+    <img src="../img/Davi.jpeg" class="active">
+    <img src="../img/lucas.jpeg">
+    <img src="../img/melissa.jpeg">
+    <img src="../img/Nick.jpeg">
+    <img src="../img/PC.jpeg">
 
     <div class="carousel-buttons">
         <button onclick="prev()">‹</button>
