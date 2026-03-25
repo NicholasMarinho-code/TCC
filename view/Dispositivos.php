@@ -10,6 +10,8 @@ require_once("../config.php");
     <title>Dispositivos</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/navbar.css" rel="stylesheet">
+    <link href="../css/dispositivos.css" rel="stylesheet">
 
 </head>
 
@@ -69,14 +71,15 @@ require_once("../config.php");
 
                                 <td>
 
-                                <a href="../controller/dispositivos-read.php?id=<?= $row['id'] ?>" class="btn btn-info btn-sm">                                        Visualizar
+                                    <a href="dispositivo-read.php?id=<?= $row['id'] ?>" class="btn btn-info btn-sm">
+                                        Visualizar
                                     </a>
 
-                                    <a href="../controller/dispositivos-update.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">
+                                    <a href="dispositivo-update.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">
                                         Editar
                                     </a>
 
-                                    <a href="../controller/dispositivos-delete.php?id=<?= $row['id'] ?>"
+                                    <a href="../controller/dispositivo-delete.php?id=<?= $row['id'] ?>"
                                         class="btn btn-danger btn-sm"
                                         onclick="return confirm('Tem certeza que deseja deletar?')">
 
@@ -93,7 +96,7 @@ require_once("../config.php");
                     </tbody>
 
                 </table>
-                <a href="menu.php"><button type="button" class="btn btn-danger">Voltar</button></a>
+
             </div>
 
         </div>

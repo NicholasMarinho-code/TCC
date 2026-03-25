@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="stilo.css">
+    <link rel="stylesheet" href="css/stilo.css">
 </head>
 <body>
 
@@ -55,7 +55,7 @@
 </section>
 
 <footer>
-    © 2025 - Todos os direitos reservados.
+    <p>© 2025 - Todos os direitos reservados.</p>
 </footer>
 
 </body>

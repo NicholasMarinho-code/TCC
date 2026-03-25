@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Usuário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="../css/navbar.css" rel="stylesheet">
+    <link href="../css/usuarios.css" rel="stylesheet">
   </head>
   <body>
     <?php include'navbar.php'?>
@@ -68,7 +70,6 @@
           ?>
       </tbody>
             </table>
-            <a href="menu.php"><button type="button" class="btn btn-danger">Voltar</button></a>
           </div>
         </div>
       </div>

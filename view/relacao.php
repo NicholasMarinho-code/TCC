@@ -8,6 +8,8 @@ require_once("../config.php");
     <meta charset="UTF-8">
     <title>Relação Usuário - Dispositivo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/navbar.css" rel="stylesheet">
+    <link href="../css/relacao.css" rel="stylesheet">
 </head>
 <body>
 <?php include '../view/navbar.php'; ?>

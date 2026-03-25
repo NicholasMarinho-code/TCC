@@ -8,6 +8,8 @@ require_once("../config.php");
     <meta charset="UTF-8">
     <title>Vincular Usuário e Dispositivo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/navbar.css" rel="stylesheet">
+    <link href="../css/vincular.css" rel="stylesheet">
 </head>
 <body>
 <?php include '../view/navbar.php'; ?>
@@ -41,7 +43,6 @@ require_once("../config.php");
                 ?>
             </select>
         </div>
-        <button type="submit" name="vincular" class="btn btn-primary">Vincular</button>
         <a href="menu.php"><button type="button" class="btn btn-danger">Voltar</button></a>
     </form>
 </div>
