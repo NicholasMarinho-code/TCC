@@ -69,15 +69,15 @@ require_once("../config.php");
 
                                 <td>
 
-                                    <a href="dispositivo-read.php?id=<?= $row['id'] ?>" class="btn btn-info btn-sm">
-                                        Visualizar
-                                    </a>
+                                    <a href="../controller/dispositivos-read.php?id=<?= ($row['id']) ?>" class="btn btn-info btn-sm">
+    Visualizar
+</a>
 
-                                    <a href="dispositivo-update.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">
+                                    <a href="../controller/dispositivos-update.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">
                                         Editar
                                     </a>
 
-                                    <a href="../controller/dispositivo-delete.php?id=<?= $row['id'] ?>"
+                                    <a href="../controller/dispositivos-delete.php?id=<?= $row['id'] ?>"
                                         class="btn btn-danger btn-sm"
                                         onclick="return confirm('Tem certeza que deseja deletar?')">
 
