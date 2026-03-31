@@ -28,7 +28,7 @@
         </p>
 
         <div class="hero-buttons">
-            <a href="TCC/view/sobre.php" class="btn-primary">Conheça a Equipe</a>
+            <a href="view/sobre.php" class="btn-primary">Conheça a Equipe</a>
         </div>
     </div>
 </section>
