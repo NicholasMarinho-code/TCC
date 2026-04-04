@@ -33,7 +33,7 @@ CREATE TABLE Usuario_Dispositivo (
         ON UPDATE CASCADE,
 
     FOREIGN KEY (dispositivo_id) 
-        REFERENCES Dispositivos(id)
+        REFERENCES Dispositivo(id)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
