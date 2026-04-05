@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
+$host = '127.0.0.1';
 $dbname = 'Umidade';
 $usuario = 'root'; 
-$senha = '';       
+$senha = '1234';       
 
 
 $conexao = mysqli_connect($host, $usuario, $senha, $dbname) or die ("Não foi possível conectar");

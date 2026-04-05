@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="css/stilo.css">
+    <link rel="stylesheet" href="css/botao.css">
 </head>
 <body>
 
@@ -16,6 +17,16 @@
             <li><a href="./view/sobre.php">Nossa Equipe</a></li>
         </ul>
     </nav>
+    <div>
+        <input type="checkbox" class="checkbox" id="chk">
+
+        <label class="label"  for="chk">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <div class="ball"></div>
+        </label>
+    </div>
+
     <a href="./view/login.php" class="btn-login">Login / Cadastro</a>
 </header>
 
@@ -58,5 +69,8 @@
     <p>© 2025 - Todos os direitos reservados.</p>
 </footer>
 
+
+    <script src="https://kit.fontawesome.com/878fd54421.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>
