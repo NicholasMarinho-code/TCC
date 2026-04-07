@@ -27,7 +27,7 @@
         </label>
     </div>
 
-    <a href="./view/login.php" class="btn-login">Login / Cadastro</a>
+    <a href="./view/login.php" class="btn-login">Login</a>
 </header>
 
 <section class="hero-fridge">

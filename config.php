@@ -1,6 +1,6 @@
 <?php
 $host = '127.0.0.1';
-$dbname = 'Umidade';
+$dbname = 'Umidades';
 $usuario = 'root'; 
 $senha = '1234';       
 
