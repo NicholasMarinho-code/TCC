@@ -1,9 +1,11 @@
 <?php
 $host = '127.0.0.1';
-$dbname = 'Umidades';
-$usuario = 'root'; 
-$senha = '1234';       
+$dbname = 'Umidade';
+$usuario = 'root';
+$senha = '';
 
-
-$conexao = mysqli_connect($host, $usuario, $senha, $dbname) or die ("Não foi possível conectar");
+$conexao = mysqli_connect($host, $usuario, $senha, $dbname);
+if (!$conexao) {
+    die('Erro de conexão (' . mysqli_connect_errno() . '): ' . mysqli_connect_error());
+}
 ?>

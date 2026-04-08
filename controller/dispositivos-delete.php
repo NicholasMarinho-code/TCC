@@ -8,6 +8,8 @@ require_once("../config.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Deletar Dispositivo</title>
+      <link href="../css/navbar.css" rel="stylesheet">
+  <link href="../css/dispositivos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
