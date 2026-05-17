@@ -1,9 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-?>
-
-<?php
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
   session_start();
   require_once("../config.php");
 ?>
@@ -14,26 +11,24 @@ ini_set('display_errors', 1);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Usuário</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/navbar.css" rel="stylesheet">
     <link href="../css/usuarios.css" rel="stylesheet">
   </head>
   <body>
-    <?php include'navbar.php'?>
+    <?php include 'navbar.php' ?>
   <div class="container mt-4">
-    <?php
-      include('mensagem.php');
-    ?>
+    <?php include('mensagem.php'); ?>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
             <h4>Lista de Usuários
-              <a href="../controller/usuario-create.php" class="btn btn-primary float-end">Adcionar usuário</a> 
+              <a href="../controller/usuario-create.php" class="btn btn-primary float-end">Adicionar usuário</a> 
             </h4>
           </div>
           <div class="card-body">
-            <table class = "table table-bordered table-striped">
+            <table class="table table-bordered table-striped">
               <thead>
                 <tr>
                   <th>Id</th>
@@ -46,17 +41,17 @@ ini_set('display_errors', 1);
               </thead>
               <tbody>
             <?php 
-            $sql = "SELECT * FROM Usuario";
-            $Usuario = mysqli_query($conexao, $sql);
+            try {
+                $sql = 'SELECT * FROM "Usuario" ORDER BY id ASC';
+                $usuarios = $pdo->query($sql);
 
-            if(mysqli_num_rows($Usuario) > 0){
-            while($row = mysqli_fetch_assoc($Usuario)){
+                if($usuarios->rowCount() > 0){
+                    while($row = $usuarios->fetch(PDO::FETCH_ASSOC)){
             ?>
             <tr>
               <td><?= $row['id'] ?></td>
               <td><?= $row['nome'] ?></td>
-              <td><?= $row['emailCorp'] ?></td>
-              <td><?= $row['senha'] ?></td>
+              <td><?= $row['emailcorp'] ?></td> <td><?= $row['senha'] ?></td>
               <td><?= $row['funcao'] ?></td>
               <td>
                 <a href="../controller/usuario-read.php?id=<?=$row['id']?>" class="btn btn-secondary btn-sm">Visualizar</a>
@@ -68,10 +63,13 @@ ini_set('display_errors', 1);
               </td>
             </tr>
           <?php 
+                    }
+                } else {
+                    echo '<tr><td colspan="6"><h5>Nenhum usuário encontrado</h5></td></tr>';
+                }
+            } catch (PDOException $e) {
+                echo '<tr><td colspan="6"><h5 class="text-danger">Erro ao conectar ao banco: ' . $e->getMessage() . '</h5></td></tr>';
             }
-        } else {
-            echo '<tr><td colspan="6"><h5>Nenhum usuario encontrado</h5></td></tr>';
-        }
           ?>
       </tbody>
             </table>
@@ -80,6 +78,6 @@ ini_set('display_errors', 1);
       </div>
     </div>
   </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

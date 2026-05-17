@@ -1,80 +1,99 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-?>
-
-<?php
 session_start();
 require_once("../config.php");
-
-// Criar dispositivo
+// CRIAR DISPOSITIVO
 if (isset($_POST["create_dispositivo"])) {
-    $nome = mysqli_real_escape_string($conexao, trim($_POST["nome"]));
-    $tipo = mysqli_real_escape_string($conexao, trim($_POST["tipo"]));
-    $localizacao = mysqli_real_escape_string($conexao, trim($_POST["localizacao"]));
-    $status = mysqli_real_escape_string($conexao, trim($_POST["status"]));
-
-    if ($nome === "" || $tipo === "" || $localizacao === "" || $status === "") {
+    $nome = trim($_POST["nome"]);
+    $tipo = trim($_POST["tipo"]);
+    $localizacao = trim($_POST["localizacao"]);
+    $status = trim($_POST["status"]);
+    if (
+        $nome === "" ||
+        $tipo === "" ||
+        $localizacao === "" ||
+        $status === ""
+    ) {
         $_SESSION["mensagem"] = "Dispositivo não criado. Preencha todos os campos.";
         header('location: ../view/Dispositivos.php');
         exit;
     }
-
-    $sql = "INSERT INTO Dispositivo (nome, tipo, localizacao, status) 
-            VALUES ('$nome', '$tipo', '$localizacao', '$status')";
-
-    mysqli_query($conexao, $sql);
-
-    if (mysqli_affected_rows($conexao) > 0) {
+    try {
+        $sql = $pdo->prepare("
+            INSERT INTO Dispositivo
+            (nome, tipo, localizacao, status)
+            VALUES
+            (:nome, :tipo, :localizacao, :status)
+        ");
+        $sql->execute([
+            ':nome' => $nome,
+            ':tipo' => $tipo,
+            ':localizacao' => $localizacao,
+            ':status' => $status
+        ]);
         $_SESSION["mensagem"] = "Dispositivo criado com sucesso.";
-    } else {
-        $_SESSION["mensagem"] = "Erro ao criar dispositivo.";
+    } catch (PDOException $e) {
+        $_SESSION["mensagem"] = "Erro ao criar dispositivo: " . $e->getMessage();
     }
     header('location: ../view/Dispositivos.php');
     exit;
 }
-
-// Atualizar dispositivo
+// ATUALIZAR DISPOSITIVO
 if (isset($_POST["update_dispositivo"])) {
-    $dispositivo_id = mysqli_real_escape_string($conexao, $_POST["dispositivo_id"]);
-    $nome = mysqli_real_escape_string($conexao, trim($_POST["nome"]));
-    $tipo = mysqli_real_escape_string($conexao, trim($_POST["tipo"]));
-    $localizacao = mysqli_real_escape_string($conexao, trim($_POST["localizacao"]));
-    $status = mysqli_real_escape_string($conexao, trim($_POST["status"]));
-
-    if ($nome === "" || $tipo === "" || $localizacao === "" || $status === "") {
+    $dispositivo_id = $_POST["dispositivo_id"];
+    $nome = trim($_POST["nome"]);
+    $tipo = trim($_POST["tipo"]);
+    $localizacao = trim($_POST["localizacao"]);
+    $status = trim($_POST["status"]);
+    if (
+        $nome === "" ||
+        $tipo === "" ||
+        $localizacao === "" ||
+        $status === ""
+    ) {
         $_SESSION["mensagem"] = "Dispositivo não atualizado. Preencha todos os campos.";
         header('location: ../view/Dispositivos.php');
         exit;
     }
-
-    $sql = "UPDATE Dispositivo 
-            SET nome = '$nome', tipo = '$tipo', localizacao = '$localizacao', status = '$status'
-            WHERE id = '$dispositivo_id'";
-
-    mysqli_query($conexao, $sql);
-
-    if (mysqli_affected_rows($conexao) > 0) {
+    try {
+        $sql = $pdo->prepare("
+            UPDATE Dispositivo
+            SET
+                nome = :nome,
+                tipo = :tipo,
+                localizacao = :localizacao,
+                status = :status
+            WHERE id = :id
+        ");
+        $sql->execute([
+            ':nome' => $nome,
+            ':tipo' => $tipo,
+            ':localizacao' => $localizacao,
+            ':status' => $status,
+            ':id' => $dispositivo_id
+        ]);
         $_SESSION["mensagem"] = "Dispositivo atualizado com sucesso.";
-    } else {
-        $_SESSION["mensagem"] = "Erro ao atualizar dispositivo.";
+    } catch (PDOException $e) {
+        $_SESSION["mensagem"] = "Erro ao atualizar dispositivo: " . $e->getMessage();
     }
     header('location: ../view/Dispositivos.php');
     exit;
 }
-
-// Deletar dispositivo
+// DELETAR DISPOSITIVO
 if (isset($_POST["delete_dispositivo"])) {
-    $dispositivo_id = mysqli_real_escape_string($conexao, $_POST["delete_dispositivo"]);
-
-    $sql = "DELETE FROM Dispositivo WHERE id = '$dispositivo_id'";
-
-    mysqli_query($conexao, $sql);
-
-    if (mysqli_affected_rows($conexao) > 0) {
+    $dispositivo_id = $_POST["delete_dispositivo"];
+    try {
+        $sql = $pdo->prepare("
+            DELETE FROM Dispositivo
+            WHERE id = :id
+        ");
+        $sql->execute([
+            ':id' => $dispositivo_id
+        ]);
         $_SESSION["mensagem"] = "Dispositivo deletado com sucesso.";
-    } else {
-        $_SESSION["mensagem"] = "Erro ao deletar dispositivo.";
+    } catch (PDOException $e) {
+        $_SESSION["mensagem"] = "Erro ao deletar dispositivo: " . $e->getMessage();
     }
     header('location: ../view/Dispositivos.php');
     exit;

@@ -1,88 +1,118 @@
 <?php
 session_start();
 require_once "../config.php";
-
+// CRIAR USUÁRIO
 if (isset($_POST["create_usuario"])) {
-
-    $nome = mysqli_real_escape_string($conexao, trim($_POST["nome"]));
-    $emailCorp = mysqli_real_escape_string($conexao, trim($_POST["emailCorp"]));
-    $senha = isset($_POST["senha"]) ? mysqli_real_escape_string($conexao, trim($_POST["senha"])) : "";
-    $funcao = mysqli_real_escape_string($conexao, trim($_POST["funcao"]));
-
-    if ($nome === "" || $emailCorp === "" || $senha === "" || $funcao === "") {
+    $nome = trim($_POST["nome"]);
+    $emailCorp = trim($_POST["emailCorp"]);
+    $senha = isset($_POST["senha"]) ? trim($_POST["senha"]) : "";
+    $funcao = trim($_POST["funcao"]);
+    if (
+        $nome === "" ||
+        $emailCorp === "" ||
+        $senha === "" ||
+        $funcao === ""
+    ) {
         $_SESSION["mensagem"] = "Usuário não criado";
         header('location: Usuarios.php');
         exit;
     }
-
-    $sql = "INSERT INTO Usuario (nome, emailCorp, senha, funcao) 
-            VALUES ('$nome', '$emailCorp', '$senha', '$funcao')";
-
-    mysqli_query($conexao, $sql);
-
-    if (mysqli_affected_rows($conexao) > 0) {
+    try {
+        $sql = $pdo->prepare("
+            INSERT INTO Usuario
+            (nome, emailCorp, senha, funcao)
+            VALUES
+            (:nome, :emailCorp, :senha, :funcao)
+        ");
+        $sql->execute([
+            ':nome' => $nome,
+            ':emailCorp' => $emailCorp,
+            ':senha' => $senha,
+            ':funcao' => $funcao
+        ]);
         $_SESSION["mensagem"] = "Usuário criado com sucesso";
-        header('location: Usuarios.php');
-        exit;
-    } else {
-        $_SESSION["mensagem"] = "Usuário não foi criado";
-        header('location: Usuarios.php');
-        exit;
+    } catch (PDOException $e) {
+        $_SESSION["mensagem"] = "Usuário não foi criado: " . $e->getMessage();
     }
+    header('location: Usuarios.php');
+    exit;
 }
-
+// ATUALIZAR USUÁRIO
 if (isset($_POST["update_usuario"])) {
-
-    $usuario_id = mysqli_real_escape_string($conexao, $_POST["usuario_id"]);
-
-    $nome = mysqli_real_escape_string($conexao, trim($_POST["nome"]));
-    $emailCorp = mysqli_real_escape_string($conexao, trim($_POST["emailCorp"]));
-    $senha = mysqli_real_escape_string($conexao, trim($_POST["senha"]));
-    $funcao = mysqli_real_escape_string($conexao, trim($_POST["funcao"]));
-
-    if ($nome == "" || $emailCorp == "" || $funcao == "") {
+    $usuario_id = $_POST["usuario_id"];
+    $nome = trim($_POST["nome"]);
+    $emailCorp = trim($_POST["emailCorp"]);
+    $senha = trim($_POST["senha"]);
+    $funcao = trim($_POST["funcao"]);
+    if (
+        $nome === "" ||
+        $emailCorp === "" ||
+        $funcao === ""
+    ) {
         $_SESSION["mensagem"] = "Usuário não foi atualizado";
         header('location: Usuarios.php');
         exit;
     }
-
-    if ($senha === "") {
-        $sql = "UPDATE Usuario 
-                SET nome = '$nome', emailCorp = '$emailCorp', funcao = '$funcao'
-                WHERE id = '$usuario_id'";
-    } else {
-        $sql = "UPDATE Usuario 
-                SET nome = '$nome', emailCorp = '$emailCorp', senha = '$senha', funcao = '$funcao'
-                WHERE id = '$usuario_id'";
-    }
-
-    mysqli_query($conexao, $sql);
-
-    if (mysqli_affected_rows($conexao) > 0) {
+    try {
+        // Atualiza SEM senha
+        if ($senha === "") {
+            $sql = $pdo->prepare("
+                UPDATE Usuario
+                SET
+                    nome = :nome,
+                    emailCorp = :emailCorp,
+                    funcao = :funcao
+                WHERE id = :id
+            ");
+            $sql->execute([
+                ':nome' => $nome,
+                ':emailCorp' => $emailCorp,
+                ':funcao' => $funcao,
+                ':id' => $usuario_id
+            ]);
+        }
+        // Atualiza COM senha
+        else {
+            $sql = $pdo->prepare("
+                UPDATE Usuario
+                SET
+                    nome = :nome,
+                    emailCorp = :emailCorp,
+                    senha = :senha,
+                    funcao = :funcao
+                WHERE id = :id
+            ");
+            $sql->execute([
+                ':nome' => $nome,
+                ':emailCorp' => $emailCorp,
+                ':senha' => $senha,
+                ':funcao' => $funcao,
+                ':id' => $usuario_id
+            ]);
+        }
         $_SESSION["mensagem"] = "Usuário atualizado com sucesso";
-        header('location: Usuarios.php');
-        exit;
-    } else {
-        $_SESSION["mensagem"] = "Usuário não foi atualizado";
-        header('location: Usuarios.php');
-        exit;
+    } catch (PDOException $e) {
+        $_SESSION["mensagem"] = "Usuário não foi atualizado: " . $e->getMessage();
     }
+    header('location: Usuarios.php');
+    exit;
 }
-
+// DELETAR USUÁRIO
 if (isset($_POST['delete_usuario'])) {
-    $usuario_id = mysqli_real_escape_string($conexao, $_POST['delete_usuario']);
-
-    $sql = "DELETE FROM Usuario WHERE id = '$usuario_id' ";
-
-    mysqli_query($conexao, $sql);
-
-    if (mysqli_affected_rows($conexao) > 0) {
-        $_SESSION["mensagem"] = "Usuario deletado com sucesso";
-        header("location: Usuarios.php");
-    } else {
-        $_SESSION["mensagem"] = "Usuario não foi deletado";
-        header("location: Usuarios.php");
+    $usuario_id = $_POST['delete_usuario'];
+    try {
+        $sql = $pdo->prepare("
+            DELETE FROM Usuario
+            WHERE id = :id
+        ");
+        $sql->execute([
+            ':id' => $usuario_id
+        ]);
+        $_SESSION["mensagem"] = "Usuário deletado com sucesso";
+    } catch (PDOException $e) {
+        $_SESSION["mensagem"] = "Usuário não foi deletado: " . $e->getMessage();
     }
+    header("location: Usuarios.php");
+    exit;
 }
-
 ?>

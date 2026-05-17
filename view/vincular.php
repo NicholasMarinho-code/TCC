@@ -23,9 +23,14 @@ require_once("../config.php");
             <select name="usuario_id" class="form-control" required>
                 <option value="" disabled selected>Selecione um usuário</option>
                 <?php
-                $usuarios = mysqli_query($conexao, "SELECT id, nome FROM Usuario");
-                while ($u = mysqli_fetch_assoc($usuarios)) {
-                    echo "<option value='{$u['id']}'>{$u['nome']}</option>";
+                // Mudança para PDO: usando $pdo->query
+                try {
+                    $usuarios = $pdo->query('SELECT id, nome FROM "Usuario"');
+                    while ($u = $usuarios->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<option value='{$u['id']}'>{$u['nome']}</option>";
+                    }
+                } catch (PDOException $e) {
+                    echo "<option disabled>Erro ao carregar usuários</option>";
                 }
                 ?>
             </select>
@@ -36,9 +41,14 @@ require_once("../config.php");
             <select name="dispositivo_id" class="form-control" required>
                 <option value="" disabled selected>Selecione um dispositivo</option>
                 <?php
-                $dispositivos = mysqli_query($conexao, "SELECT id, nome FROM Dispositivo");
-                while ($d = mysqli_fetch_assoc($dispositivos)) {
-                    echo "<option value='{$d['id']}'>{$d['nome']}</option>";
+                // Mudança para PDO: usando $pdo->query
+                try {
+                    $dispositivos = $pdo->query('SELECT id, nome FROM "Dispositivo"');
+                    while ($d = $dispositivos->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<option value='{$d['id']}'>{$d['nome']}</option>";
+                    }
+                } catch (PDOException $e) {
+                    echo "<option disabled>Erro ao carregar dispositivos</option>";
                 }
                 ?>
             </select>
@@ -47,8 +57,6 @@ require_once("../config.php");
         <button type="submit" name="vincular" class="btn btn-primary">Vincular</button>
     </form>
 </div>
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
