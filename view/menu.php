@@ -51,6 +51,13 @@
                     <a href="relacao.php" class="btn btn-info btn-zero">Acessar</a>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="card card-zero p-4">
+                    <h3>Leitura da Temperatura</h3>
+                    <p>Ver temperaturas</p>
+                    <a href="Leitura.php" class="btn btn-info btn-zero">Acessar</a>
+                </div>
+            </div>
 
         </div>
 
