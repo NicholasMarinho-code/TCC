@@ -8,16 +8,7 @@
 </head>
 <body>
 
-<header>
-    <h1>Nossa Equipe</h1>
-    <nav>
-        <ul>
-            <li><a href="../index.php">Home</a></li>
-            <li><a href="sobre.php">Nossa Equipe</a></li>
-        </ul>
-    </nav>
-    <a href="login.php" class="btn-login">Login / Cadastro</a>
-</header>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/tcc/includes/header.php'; ?>
 
 <section style="padding: 40px; text-align: center;">
     <h2>Equipe do Projeto</h2>
