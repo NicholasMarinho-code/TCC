@@ -6,91 +6,215 @@
     <title>Equipe</title>
     <link rel="stylesheet" href="../css/sobre.css">
 </head>
+
 <body>
 
-<?php include $_SERVER['DOCUMENT_ROOT'].'/tcc/includes/header.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/TCC/includes/header.php'; ?>
 
-<section style="padding: 40px; text-align: center;">
-    <h2>Equipe do Projeto</h2>
-    <p>Conheça os integrantes:</p>
-</section>
+<main>
 
-<div class="carousel">
-    <div class="carousel-container">
-        <img src="../img/DaviDaruix.jpg" class="active">
-        <img src="../img/LucasLima.jpg">
-        <img src="../img/MelTakeda.jpg">
-        <img src="../img/NicMarinho.jpg">
-        <img src="../img/pcGOAT.jpg">
+    <section>
+        <h2>Equipe do Projeto</h2>
+        <p>Conheça os integrantes:</p>
+    </section>
+
+    <div class="carousel">
+
+        <div class="carousel-container">
+
+            <img src="../img/DaviDaruix.jpg" class="active">
+
+            <img src="../img/LucasLima.jpg">
+
+            <img src="../img/MelTakeda.jpg">
+
+            <img src="../img/NicMarinho.jpg">
+
+            <img src="../img/pcGOAT.jpg">
+
+        </div>
+
+
+        <div class="carousel-buttons carousel-buttons-left">
+            <button onclick="prev()">‹</button>
+        </div>
+
+
+        <div class="carousel-buttons carousel-buttons-right">
+            <button onclick="next()">›</button>
+        </div>
+
+
+        <div class="carousel-indicators">
+
+            <div class="indicator active"
+                 onclick="goToSlide(0)">
+            </div>
+
+            <div class="indicator"
+                 onclick="goToSlide(1)">
+            </div>
+
+            <div class="indicator"
+                 onclick="goToSlide(2)">
+            </div>
+
+            <div class="indicator"
+                 onclick="goToSlide(3)">
+            </div>
+
+            <div class="indicator"
+                 onclick="goToSlide(4)">
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="carousel-buttons carousel-buttons-left">
-        <button onclick="prev()">‹</button>
-    </div>
+</main>
 
-    <div class="carousel-buttons carousel-buttons-right">
-        <button onclick="next()">›</button>
-    </div>
-
-    <div class="carousel-indicators">
-        <div class="indicator active" onclick="goToSlide(0)"></div>
-        <div class="indicator" onclick="goToSlide(1)"></div>
-        <div class="indicator" onclick="goToSlide(2)"></div>
-        <div class="indicator" onclick="goToSlide(3)"></div>
-        <div class="indicator" onclick="goToSlide(4)"></div>
-    </div>
-</div>
 
 <footer>
-    <p>© 2025 - Todos os direitos reservados.</p>
+
+    <p>
+        © 2025 - Todos os direitos reservados.
+    </p>
+
 </footer>
 
+
 <script>
+
 let index = 0;
-const images = document.querySelectorAll(".carousel img");
-const indicators = document.querySelectorAll(".carousel-indicators .indicator");
 
-function updateCarousel() {
-    // Update images
-    images.forEach((img, i) => {
-        img.classList.remove("active", "prev", "next");
-        if (i === index) {
+const images =
+document.querySelectorAll(".carousel img");
+
+const indicators =
+document.querySelectorAll(
+".carousel-indicators .indicator"
+);
+
+
+
+function updateCarousel(){
+
+    images.forEach((img,i)=>{
+
+        img.classList.remove(
+            "active",
+            "prev",
+            "next"
+        );
+
+
+        if(i===index){
+
             img.classList.add("active");
-        } else if (i === (index - 1 + images.length) % images.length) {
-            img.classList.add("prev");
-        } else if (i === (index + 1) % images.length) {
-            img.classList.add("next");
+
         }
+
+        else if(
+
+            i===(
+            index-1+
+            images.length
+            )
+
+            %
+            images.length
+
+        ){
+
+            img.classList.add("prev");
+
+        }
+
+
+        else if(
+
+            i===(
+            index+1
+            )
+
+            %
+            images.length
+
+        ){
+
+            img.classList.add("next");
+
+        }
+
+
     });
 
-    indicators.forEach((indicator, i) => {
-        indicator.classList.toggle("active", i === index);
+
+
+    indicators.forEach((indicator,i)=>{
+
+        indicator.classList.toggle(
+
+            "active",
+
+            i===index
+
+        );
+
     });
+
 }
 
-function showImage(i) {
-    index = i;
+
+
+function next(){
+
+    index =
+    (index+1)
+    %
+    images.length;
+
     updateCarousel();
+
 }
 
-function next() {
-    index = (index + 1) % images.length;
+
+
+function prev(){
+
+    index =
+
+    (
+    index-1+
+    images.length
+    )
+
+    %
+
+    images.length;
+
+
     updateCarousel();
+
 }
 
-function prev() {
-    index = (index - 1 + images.length) % images.length;
+
+
+function goToSlide(i){
+
+    index=i;
+
     updateCarousel();
+
 }
 
-function goToSlide(i) {
-    index = i;
-    updateCarousel();
-}
+
 
 updateCarousel();
 
-setInterval(next, 5000);
+
+setInterval(next,5000);
+
 </script>
 
 </body>

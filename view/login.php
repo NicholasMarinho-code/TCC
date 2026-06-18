@@ -30,7 +30,6 @@
 
     </div>
 
-    <script type="module" src="../app.js"></script>
-
+<script type="module" src="/TCC/app.js"></script>
 </body>
 </html>
