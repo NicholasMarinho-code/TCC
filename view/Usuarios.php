@@ -34,7 +34,6 @@
                   <th>Id</th>
                   <th>Nome</th>
                   <th>Email Corporativo</th>
-                  <th>Senha</th>
                   <th>Função</th>
                   <th>Ações</th>
                 </tr>
@@ -51,7 +50,7 @@
             <tr>
               <td><?= $row['id'] ?></td>
               <td><?= $row['nome'] ?></td>
-              <td><?= $row['emailcorp'] ?></td> <td><?= $row['senha'] ?></td>
+              <td><?= $row['emailcorp'] ?></td>
               <td><?= $row['funcao'] ?></td>
               <td>
                 <a href="../controller/usuario-read.php?id=<?=$row['id']?>" class="btn btn-secondary btn-sm">Visualizar</a>

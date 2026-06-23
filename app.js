@@ -1,8 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
-alert("ARQUIVO JS CARREGADO");
-
 const firebaseConfig = {
     apiKey: "AIzaSyB-HiFrcThUnE_yrfRx75qUsL8yx9VeOtY",
     authDomain: "tela-login-372a2.firebaseapp.com",
@@ -43,44 +41,29 @@ if (btnLogin) {
         const senha = document.getElementById("senhaLogin").value;
 
         signInWithEmailAndPassword(auth, email, senha)
-            .then(async(userCredential) => {
+            .then(async (userCredential) => {
+                console.log("Firebase OK");
+                const emailUser = userCredential.user.email;
+                console.log("Email:", emailUser);
 
-    console.log("Firebase OK");
+                
+                const resposta = await fetch(`/TCC/controller/verifica-permissao.php?email=${emailUser}`);
+                console.log("Status:", resposta.status);
+                
+                const dados = await resposta.json();
+                console.log(dados);
 
-    const email = userCredential.user.email;
-
-    console.log("Email:", email);
-
-    const resposta = await fetch(
-        `/TCC/controller/verifica-permissao.php?email=${email}`
-    );
-
-    console.log("Status:", resposta.status);
-
-    const dados = await resposta.json();
-
-    console.log("Dados:", dados);
-
-    if(dados.funcao === "Gerente"){
-
-        alert("Bem-vindo gerente");
-        window.location.href="/TCC/view/Usuarios.php";
-
-    }
-    else if(dados.funcao === "Funcionario"){
-
-        alert("Bem-vindo funcionário");
-        window.location.href="/TCC/view/funcionario.php";
-
-    }
-    else{
-
-        alert("Permissão não encontrada");
-        console.log(dados);
-
-    }
-
-})
+                
+                if (dados.funcao === "Gerente") {
+                    alert("Bem-vindo gerente");
+                    window.location.href = "/TCC/view/menu.php";
+                } else if (dados.funcao === "Funcionario") {
+                    alert("Bem-vindo funcionário");
+                    window.location.href = "/TCC/view/funcionario.php";
+                } else {
+                    alert("Permissão não encontrada");
+                }
+            }) 
             .catch((error) => {
                 alert("Erro ao logar: " + error.message);
             });
