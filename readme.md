@@ -6,6 +6,7 @@
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Azure VM](https://img.shields.io/badge/Azure-VM-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
 
 Sistema desenvolvido para monitoramento de temperatura em tempo real, gerenciamento de dispositivos, usuários e emissão de alertas.
 
@@ -173,21 +174,9 @@ Inserir as credenciais do Firebase conforme a necessidade do projeto.
 
 ---
 
-### 4. Iniciar servidor local
+### 4. Aplicação Online via VM Azure
 
-Exemplo:
-
-```bash
-php -S localhost:8000
-```
-
-ou utilizar:
-
-- XAMPP
-- Laragon
-- Apache
-
----
+Link para acessar o TCC online: http://158.23.57.37/TCC/index.php
 
 ## Segurança
 
@@ -211,13 +200,17 @@ O sistema possui mecanismos para:
 
 ---
 
-## Autores
+## Autores: 
 
 Desenvolvido como projeto de **Trabalho de Conclusão de Curso (TCC)**.
 
-Equipe responsável pelo desenvolvimento.
+Equipe responsável pelo desenvolvimento:
 
----
+Davi de Carvalho Salim Daluix: davicsdaruix@gmail.com
+Lucas Alves Lima: luquinhasalveslima@gmail.com
+Melissa Sayuri Takeda Reis: melissatakeda23@gmail.com
+Nicholas Marinho Santiago Calixto: nearmarinhos@gmail.com
+Paulo Caser Alquino de Oliveira: pauloc.alquino@gmail.com
 
 <div align="center">
 
