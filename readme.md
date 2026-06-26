@@ -214,8 +214,6 @@ Desenvolvido utilizando **PHP • Supabase • Firebase • Azure VM**
 
 <div align="center">
 
-**Sistema de Monitoramento de Temperatura**
-
 © 2026 — Todos os direitos reservados aos autores.
 
 </div>
