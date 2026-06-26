@@ -127,7 +127,6 @@ O Firebase é utilizado para:
 
 - Autenticação;
 - Serviços complementares de integração;
-- Possível expansão para autenticação e mensageria.
 
 ---
 
