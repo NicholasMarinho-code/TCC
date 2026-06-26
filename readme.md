@@ -37,7 +37,6 @@ O sistema foi desenvolvido como Trabalho de Conclusão de Curso (TCC) com o obje
 | CSS3 | Estilização |
 | Supabase | Banco de Dados |
 | Firebase | Notificações e Integrações |
-| SQL | Estrutura do banco |
 | MVC | Organização do projeto |
 
 ---
@@ -73,7 +72,6 @@ TCC
 ├── app.js
 ├── script.js
 ├── config.php
-├── database.sql
 └── index.php
 ```
 
@@ -123,19 +121,11 @@ Principais vantagens:
 - Segurança integrada;
 - Facilidade de escalabilidade.
 
-As tabelas podem ser encontradas em:
-
-```sql
-database.sql
-```
-
----
-
 ## Firebase
 
 O Firebase é utilizado para:
 
-- Notificações em tempo real;
+- Autenticação;
 - Serviços complementares de integração;
 - Possível expansão para autenticação e mensageria.
 
