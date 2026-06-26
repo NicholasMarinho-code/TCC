@@ -210,14 +210,12 @@ Desenvolvido como projeto de **Trabalho de Conclusão de Curso (TCC)**.
 **Sistema de Monitoramento de Temperatura**  
 Desenvolvido utilizando **PHP • Supabase • Firebase • Azure VM**
 
-© 2026 — Todos os direitos reservados aos autores.
-
 </div>
 
 <div align="center">
 
 **Sistema de Monitoramento de Temperatura**
 
-Desenvolvido utilizando **PHP • Supabase • Firebase**
+© 2026 — Todos os direitos reservados aos autores.
 
 </div>
