@@ -189,17 +189,30 @@ O sistema possui mecanismos para:
 
 ---
 
-## Autores: 
+## Autores
 
 Desenvolvido como projeto de **Trabalho de Conclusão de Curso (TCC)**.
 
-Equipe responsável pelo desenvolvimento:
+### Equipe de Desenvolvimento
 
-Davi de Carvalho Salim Daluix: davicsdaruix@gmail.com
-Lucas Alves Lima: luquinhasalveslima@gmail.com
-Melissa Sayuri Takeda Reis: melissatakeda23@gmail.com
-Nicholas Marinho Santiago Calixto: nearmarinhos@gmail.com
-Paulo Caser Alquino de Oliveira: pauloc.alquino@gmail.com
+| Nome | E-mail |
+|------|--------|
+| **Davi de Carvalho Salim Daluix** | davicsdaruix@gmail.com |
+| **Lucas Alves Lima** | luquinhasalveslima@gmail.com |
+| **Melissa Sayuri Takeda Reis** | melissatakeda23@gmail.com |
+| **Nicholas Marinho Santiago Calixto** | nearmarinhos@gmail.com |
+| **Paulo Caser Alquino de Oliveira** | pauloc.alquino@gmail.com |
+
+---
+
+<div align="center">
+
+**Sistema de Monitoramento de Temperatura**  
+Desenvolvido utilizando **PHP • Supabase • Firebase • Azure VM**
+
+© 2026 — Todos os direitos reservados aos autores.
+
+</div>
 
 <div align="center">
 
